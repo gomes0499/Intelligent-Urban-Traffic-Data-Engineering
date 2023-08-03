@@ -59,15 +59,17 @@ def send_to_kinesis(record):
 
 
 if __name__ == "__main__":
-    vehicle = generate_vehicle()
-    traffic_light = generate_traffic_light()
-    sensor = generate_sensor()
-    camera = generate_camera()
+    while True:
+        vehicle = generate_vehicle()
+        traffic_light = generate_traffic_light()
+        sensor = generate_sensor()
+        camera = generate_camera()
 
-    send_to_kinesis(vehicle)
-    send_to_kinesis(traffic_light)
-    send_to_kinesis(sensor)
-    send_to_kinesis(camera)
-    send_to_kinesis(generate_vehicle_association("Traffic_Light", traffic_light["Traffic_Light_ID"]))
-    send_to_kinesis(generate_vehicle_association("Sensor", sensor["Sensor_ID"]))
-    send_to_kinesis(generate_vehicle_association("Camera", camera["Camera_ID"]))
+        send_to_kinesis(vehicle)
+        send_to_kinesis(traffic_light)
+        send_to_kinesis(sensor)
+        send_to_kinesis(camera)
+        send_to_kinesis(generate_vehicle_association("Traffic_Light", traffic_light["Traffic_Light_ID"]))
+        send_to_kinesis(generate_vehicle_association("Sensor", sensor["Sensor_ID"]))
+        send_to_kinesis(generate_vehicle_association("Camera", camera["Camera_ID"]))
+
